@@ -7,6 +7,9 @@ import routes from './routes';
 import { errorMiddleware } from './middlewares/error.middleware';
 import { rateLimiter } from './middlewares/rateLimiter.middleware';
 import { requestLogger } from './middlewares/requestLogger.middleware';
+import swaggerUi from 'swagger-ui-express';
+import { swaggerDocument } from './config/swagger/swagger';
+
 
 
 
@@ -20,6 +23,8 @@ app.use(express.json());
 
 app.use(morgan('dev'));
 app.use(rateLimiter);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/api', routes);
 
