@@ -11,8 +11,6 @@ import swaggerUi from 'swagger-ui-express';
 import { swaggerDocument } from './config/swagger/swagger';
 
 
-
-
 const app = express();
 
 app.use(helmet());

@@ -1,6 +1,6 @@
 
-export const projectPaths = {
-    '/users/create-user': {
+export const paymentPaths = {
+    '/users/create-register': {
       post: {
         tags: ['Projects'],
         summary: 'Create a new project',

@@ -12,4 +12,7 @@ export class UserRepository {
   findById(id: string) {
     return UserModel.findById(id);
   }
+  findOne(query: any) {
+    return UserModel.findOne(query);
+  }
 }

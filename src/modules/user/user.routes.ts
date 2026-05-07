@@ -1,9 +1,13 @@
 import { Router } from 'express';
-import { createUser, getUser } from './user.controller';
+import { createUser } from './user.controller';
+import { ROUTE_AUTH_REGISTER } from '../../utils/page-routes';
+import { validate } from '../../middlewares/validate';
+import { createUserSchema } from './user.validation';
+import { authMiddleware } from '../../middlewares/auth.middleware';
 
 const router = Router();
 
-router.post('/', createUser);
-router.get('/:id', getUser);
+router.post(ROUTE_AUTH_REGISTER, validate(createUserSchema), authMiddleware, createUser);
+
 
 export default router;
